@@ -1,16 +1,32 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.adauthenticator</groupId>
-	<artifactId>ad-authenticator</artifactId>
-	<version>0.1.0-SNAPSHOT</version>
-	<packaging>jar</packaging>
-	<name>Active Directory Authenticator</name>
-	<licenses>
-		<license>
-			<name>GNU GPLv3</name>
-		</license>
-	</licenses>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.ad-authenticator</groupId>
+    <artifactId>ad-authenticator</artifactId>
+    <version>0.2.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>Active Directory Authenticator</name>
+    <licenses>
+        <license>
+            <name>GNU GPLv3</name>
+            <url>https://www.gnu.org/licenses/gpl-3.0.txt</url>
+        </license>
+    </licenses>
+    <scm>
+        <tag>HEAD</tag>
+        <url>https://github.com/klyall/ad-authenticator</url>
+        <connection>scm:git:git@github.com:klyall/ad-authenticator.git</connection>
+        <developerConnection>scm:git:git@github.com:klyall/ad-authenticator.git</developerConnection>
+    </scm>
+    <issueManagement>
+        <url>https://github.com/klyall/ad-authenticator/issues</url>
+        <system>GitHub</system>
+    </issueManagement>
+    <ciManagement>
+        <url>https://travis-ci.org/klyall/ad-authenticator</url>
+        <system>Travis-CI</system>
+    </ciManagement>
+
     <properties>
         <jdk.version>1.6</jdk.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
