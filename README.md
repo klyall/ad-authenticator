@@ -29,6 +29,16 @@ To retrieve the user's details call the retrieveLoggedInUser method:
 
     ADUser adUser = authenticator.retrieveLoggedInUser();
 
+By default, the user is retrieved from Active Directory using <code>(|(sAMAccountName=%1$s)(userPrincipalName=%2$s))</code> 
+as the filter  where <code>%1$s</code> is the supplied username and <code>%2$s</code> is the username@domainName. 
+This can be overridden by calling <code>setSearchFilter(String searchFilter)</code>.  
+
+Searching Active Directory for a user can be made faster by adding additional objects to the search name.  
+
+By default the search name is the domain name e.g. 'DC=company,DC=com'. Additional objects can be added to make the 
+search name to make it more specific e.g. 'OU=User Accounts,DC=company,DC=com' and hence narrows the search. This can be 
+achieved by calling <code>addSearchObject(String searchObject)</code>.
+
 Testing
 =======
 A suite of unit tests has been used written to test the easily mocked parts of the library. This can be tested by running:
@@ -39,7 +49,7 @@ An integration test covers the remainder of the logic by directly accessing an A
 By default these tests are ignored as the credentials and expected user details needs to be provided in the test. 
 Once these have been specified in the constants are the top of the test, comment out the @Ignore annotations and run:
   
-    mvn integration-test  
+    mvn verify  
 
 Bugs & Issues
 =============

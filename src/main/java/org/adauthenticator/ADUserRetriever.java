@@ -35,4 +35,12 @@ public interface ADUserRetriever {
      * @param searchFilter Search filter to be used.
      */
     void setSearchFilter(String searchFilter);
+
+    /**
+     * The performance of an Active Directory search can be improved by adding additional objects to the search name.
+     * By default the search name is the domain name e.g. 'DC=company,DC=com'. Additional objects can be added to
+     * make the search name more specific e.g. 'OU=User Accounts,DC=company,DC=com' hence narrowing the search.
+     * @param searchObject Additional object to use in search name e.g. 'OU=User Accounts'.
+     */
+    void addSearchObject(String searchObject);
 }

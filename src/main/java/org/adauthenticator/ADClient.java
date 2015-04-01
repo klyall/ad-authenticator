@@ -20,9 +20,7 @@ package org.adauthenticator;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.util.Properties;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 import javax.naming.AuthenticationException;
 import javax.naming.NamingEnumeration;
@@ -63,6 +61,7 @@ public class ADClient implements ADAuthenticator {
     private static final ThreadLocal<ADUser> LOGGED_IN_USER_HOLDER = new ThreadLocal<ADUser>();
     private String dnsDomain;
     private String searchFilter;
+    private List<String> searchObjects = new ArrayList<String>();
     private Set<ADServerEntry> providerList;
 
     protected ADClient() {
@@ -82,10 +81,17 @@ public class ADClient implements ADAuthenticator {
         }
     }
 
+    @Override
     public void setSearchFilter(String searchFilter) {
         this.searchFilter = searchFilter;
     }
 
+    @Override
+    public void addSearchObject(String searchObject) {
+        this.searchObjects.add(searchObject);
+    }
+
+    @Override
     public boolean authenticate(String username, String password) {
         LOG.info("Authenticating '{}'", username);
 
@@ -218,10 +224,8 @@ public class ADClient implements ADAuthenticator {
         try {
             SearchControls searchControl = new SearchControls();
             searchControl.setSearchScope(SearchControls.SUBTREE_SCOPE);
-            String domainDN = toDomainDN(dnsDomain);
 
-            // TODO Make this externally available as a go-faster option
-            String name = "OU=User Accounts," + domainDN;
+            String name = createSearchName();
             String filter = format(getSearchFilter(), userName, usernameAtDomain);
 
             LOG.debug("Searching AD for {} in {}", filter, dnsDomain);
@@ -235,6 +239,16 @@ public class ADClient implements ADAuthenticator {
             LOG.warn("Failed to retrieve user the attributes for '{}'. Error: {}", userName, e.getMessage());
             LOG.debug("User search failed", e);
         }
+    }
+
+    private String createSearchName() {
+        StringBuilder sb = new StringBuilder();
+        for (String searchObject: searchObjects) {
+            sb.append(searchObject);
+            sb.append(",");
+        }
+        sb.append(toDomainDN(dnsDomain));
+        return sb.toString();
     }
 
     private String toDomainDN(String dnsDomain) {
@@ -251,3 +265,4 @@ public class ADClient implements ADAuthenticator {
         }
     }
 }
+

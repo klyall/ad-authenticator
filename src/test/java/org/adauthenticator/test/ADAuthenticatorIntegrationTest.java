@@ -101,6 +101,17 @@ public class ADAuthenticatorIntegrationTest {
 
     @Test
     @Ignore("Only run manually as you need to use real AD credentials")
+    public void shouldAuthenticateAndRetrieveUserUsingAdditionalSearchObject() {
+        ADAuthenticator authenticator = ADAuthenticatorFactory.newInstance();
+        authenticator.addSearchObject("OU=User Accounts");
+        boolean authenticated = authenticator.authenticate(TEST_SAM_ACCOUNT, TEST_PASSWORD);
+        ADUser adUser = authenticator.retrieveLoggedInUser();
+
+        assertNotNull("User not retrieved", adUser);
+    }
+
+    @Test
+    @Ignore("Only run manually as you need to use real AD credentials")
     public void shouldAuthenticateAndRetrieveUserEmail() {
         ADAuthenticator authenticator = ADAuthenticatorFactory.newInstance();
         boolean authenticated = authenticator.authenticate(TEST_SAM_ACCOUNT, TEST_PASSWORD);
