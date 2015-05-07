@@ -3,9 +3,17 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.ad-authenticator</groupId>
     <artifactId>ad-authenticator</artifactId>
-    <version>0.2.0-SNAPSHOT</version>
+    <version>0.3.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Active Directory Authenticator</name>
+    <description>A Java library for authenticating a user against Active Directory and then retrieving their user details.</description>
+    <url>https://github.com/klyall/ad-authenticator</url>
+    <developers>
+        <developer>
+            <name>Keith Lyall</name>
+            <email>keith.lyall@ad-authenticator.com</email>
+        </developer>
+    </developers>
     <licenses>
         <license>
             <name>GNU GPLv3</name>
