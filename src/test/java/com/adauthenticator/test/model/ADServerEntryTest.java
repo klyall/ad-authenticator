@@ -16,10 +16,10 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package org.adauthenticator.test.model;
+package com.adauthenticator.test.model;
 
-import org.adauthenticator.model.ADServerEntry;
-import org.adauthenticator.model.ADServerEntryParser;
+import com.adauthenticator.model.ADServerEntry;
+import com.adauthenticator.model.ADServerEntryParser;
 import org.junit.Before;
 import org.junit.Test;
 

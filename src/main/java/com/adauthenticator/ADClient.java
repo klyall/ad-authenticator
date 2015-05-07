@@ -16,7 +16,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package org.adauthenticator;
+package com.adauthenticator;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -28,10 +28,10 @@ import javax.naming.NamingException;
 import javax.naming.directory.*;
 import javax.naming.ldap.InitialLdapContext;
 
-import org.adauthenticator.model.ADServerEntry;
-import org.adauthenticator.model.ADServerEntryParser;
-import org.adauthenticator.model.ADUser;
-import org.adauthenticator.model.ADUserParser;
+import com.adauthenticator.model.ADServerEntry;
+import com.adauthenticator.model.ADServerEntryParser;
+import com.adauthenticator.model.ADUser;
+import com.adauthenticator.model.ADUserParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

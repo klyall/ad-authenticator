@@ -14,15 +14,13 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.adauthenticator;
+package com.adauthenticator.model;
 
-public class ADAuthenticatorException extends RuntimeException {
 
-    public ADAuthenticatorException(String message, Exception e) {
-        super(message, e);
-    }
+import java.util.List;
 
-    public ADAuthenticatorException(String message) {
-        super(message);
-    }
+public interface ADGroup {
+    String getCommonName();
+    List<String> getOrganizationalUnitNames();
+    List<String> getDomainComponents();
 }

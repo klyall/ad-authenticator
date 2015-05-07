@@ -14,9 +14,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.adauthenticator;
+package com.adauthenticator;
 
-import org.adauthenticator.model.ADUser;
+import com.adauthenticator.model.ADUser;
 
 public interface ADUserRetriever {
 

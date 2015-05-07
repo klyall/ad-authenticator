@@ -14,15 +14,16 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.adauthenticator.test;
+package com.adauthenticator.test;
 
-import org.adauthenticator.ADAuthenticator;
-import org.adauthenticator.ADAuthenticatorFactory;
-import org.adauthenticator.model.ADUser;
+import com.adauthenticator.ADAuthenticator;
+import com.adauthenticator.ADAuthenticatorFactory;
+import com.adauthenticator.model.ADUser;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 

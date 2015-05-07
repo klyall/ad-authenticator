@@ -17,33 +17,10 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package org.adauthenticator.test.model;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.mockito.MockitoAnnotations.initMocks;
-import static org.mockito.Mockito.*;
-
-import java.util.Arrays;
-import java.util.List;
-
-import javax.naming.NamingEnumeration;
-import javax.naming.directory.Attribute;
-import javax.naming.directory.Attributes;
-import javax.naming.directory.BasicAttributes;
-import javax.naming.directory.SearchResult;
-
-import org.adauthenticator.model.ADUser;
-import org.adauthenticator.model.ADUserParser;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+package com.adauthenticator.test.model;
 
 /**
- * Testcase for {@link org.adauthenticator.model.ADUser}
+ * Testcase for {@link com.adauthenticator.model.ADUser}
  * @author Jiji Sasidharan
  */
 

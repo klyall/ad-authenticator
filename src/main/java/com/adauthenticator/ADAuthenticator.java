@@ -14,16 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+package com.adauthenticator;
 
-package org.adauthenticator;
-
-public interface ADUserAuthenticator {
-
-    /**
-     * Authenticates that a user exists in Active Directory for the provided credentials.
-     * @param username The user's sAMAccountName or usrPrincipleName.
-     * @param password The user's password.
-     * @return Returns true if the user is authenticated otherwise false.
-     */
-    boolean authenticate(String username, String password);
+public interface ADAuthenticator extends ADUserAuthenticator, ADUserRetriever {
 }
