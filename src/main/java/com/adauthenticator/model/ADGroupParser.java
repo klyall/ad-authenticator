@@ -44,7 +44,11 @@ public class ADGroupParser {
                 String value    = pair[1];
 
                 if (key.equals(ATTRIBUTE_COMMON_NAME)) {
-                    adGroup.setCommonName(value);
+                    if (adGroup.getCommonName() == null) {
+                        adGroup.setCommonName(value);
+                    } else {
+                        LOG.debug("Ignoring common name {} as value already set to {}", value, adGroup.getCommonName());
+                    }
                 } else if (key.equals(ATTRIBUTE_DOMAIN_COMPONENT)) {
                     adGroup.addDomainComponents(value);
                 } else if (key.equals(ATTRIBUTE_ORGANIZATIONAL_UNIT_NAME)) {
