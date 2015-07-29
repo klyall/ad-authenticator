@@ -16,20 +16,23 @@
  */
 package com.adauthenticator.test.model;
 
-import com.adauthenticator.model.ADGroup;
-import com.adauthenticator.model.ADGroupParser;
-import org.junit.Before;
-import org.junit.Test;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.junit.Assert.assertThat;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.assertThat;
+import org.junit.Before;
+import org.junit.Test;
 
-public class ADGroupTest extends EqualsAndHashCodeTests {
+import com.adauthenticator.model.ADGroup;
+import com.adauthenticator.model.ADGroupParser;
+
+public class ADGroupTest extends EqualsAndHashCodeTests<ADGroup> {
 
     private static final String TEST_STRING = "CN=Group Name,OU=Distribution Groups,OU=Exchange,DC=company,DC=com";
     private ADGroup referenceGroup1;
@@ -56,17 +59,17 @@ public class ADGroupTest extends EqualsAndHashCodeTests {
     }
 
     @Override
-    protected Object getReferenceObject2() {
+    protected ADGroup getReferenceObject2() {
         return referenceGroup2;
     }
 
     @Override
-    protected Object getReferenceObject3() {
+    protected ADGroup getReferenceObject3() {
         return referenceGroup3;
     }
 
     @Override
-    protected Map getDifferentObjects() {
+    protected Map<String, ADGroup> getDifferentObjects() {
         return differentADGroups;
     }
 
@@ -104,7 +107,7 @@ public class ADGroupTest extends EqualsAndHashCodeTests {
 
         ADGroup group = ADGroupParser.parse(str);
 
-        assertThat(referenceGroup1, is(notNullValue()));
+        assertThat(group, is(notNullValue()));
     }
 
     @Test
@@ -115,4 +118,13 @@ public class ADGroupTest extends EqualsAndHashCodeTests {
 
         assertThat(group, is(notNullValue()));
     }
+    
+    @Test
+    public void groupWithMultipleCommonNamesShouldUseLeftMostCommonName() {
+
+        ADGroup group = ADGroupParser.parse("CN=Group Name,CN=CN Will be ignored,OU=Distribution Groups,OU=Exchange,DC=company,DC=com");
+
+        assertThat(group.getCommonName(), is(equalTo("Group Name")));
+    }
+
 }
