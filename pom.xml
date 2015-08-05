@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.ad-authenticator</groupId>
     <artifactId>ad-authenticator</artifactId>
-    <version>0.3.3-SNAPSHOT</version>
+    <version>0.3.3</version>
     <packaging>jar</packaging>
     <name>Active Directory Authenticator</name>
     <description>A Java library for authenticating a user against Active Directory and then retrieving their user details.</description>
@@ -20,7 +20,7 @@
         </license>
     </licenses>
     <scm>
-        <tag>HEAD</tag>
+        <tag>ad-authenticator-0.3.3</tag>
         <url>https://github.com/klyall/ad-authenticator</url>
         <connection>scm:git:git@github.com:klyall/ad-authenticator.git</connection>
         <developerConnection>scm:git:git@github.com:klyall/ad-authenticator.git</developerConnection>
