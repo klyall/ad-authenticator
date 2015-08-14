@@ -112,8 +112,9 @@ public class ADClient implements ADAuthenticator {
 
     /**
      * Retrieve the logged in user object from ThreadLocal and returns it.
-     * @return
+     * @return Returns the ADUser that has previously been authenticated.
      */
+    @Override
     public ADUser retrieveLoggedInUser() {
         return LOGGED_IN_USER_HOLDER.get();
     }
@@ -145,7 +146,7 @@ public class ADClient implements ADAuthenticator {
                 } catch (Exception e) {
                     LOG.warn("Couldn't find any providers for domain '{}", adDomain);
                 }
-            };
+            }
 
             if (providerList == null || providerList.isEmpty()) {
                 LOG.error("Auto-discovery couldn't find any srv records for {}", hostName);
@@ -165,8 +166,8 @@ public class ADClient implements ADAuthenticator {
     /**
      * Fetch list of LDAP server configurations for a given domain
      *
-     * @param dnsDomain
-     * @return
+     * @param dnsDomain The DNS domain to search for AD/LADP servers.
+     * @return Returns a set of AD/LDAP servers.
      */
     private Set<ADServerEntry> fetchProviderList(String dnsDomain) {
         LOG.debug("Searching provider list for domain '{}'", dnsDomain);
@@ -228,7 +229,7 @@ public class ADClient implements ADAuthenticator {
             String name = createSearchName();
             String filter = format(getSearchFilter(), userName, usernameAtDomain);
 
-            LOG.debug("Searching AD for {} in {}", filter, dnsDomain);
+            LOG.debug("Searching AD for '{}' in '{}'", filter, name);
 
             NamingEnumeration<SearchResult> answer = ldapCtx.search(name, filter, searchControl);
 
