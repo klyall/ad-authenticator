@@ -3,12 +3,15 @@ platform: linux
 image_resource:
   type: docker-image
   source: 
-    repository: openjdk
-    tag: 8
+    repository: maven
+    tag: 3-jdk-8-alpine
 
 inputs:
 - name: ad-authenticator
 
+outputs:
+- name: unit-tests-ouput
+  
 run:
   path: ./ad-authenticator/src/main/ci/unit_tests.sh
 
