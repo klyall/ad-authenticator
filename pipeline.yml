@@ -11,4 +11,4 @@ jobs:
   - get: ad-authenticator
     trigger: true
   - task: unit-tests
-    file: ad-authenticator/src/main/ci/unit_test.yml
+    file: ad-authenticator/src/main/ci/unit_tests.yml
