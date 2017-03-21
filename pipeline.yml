@@ -1,0 +1,14 @@
+resources:
+- name: ad-authenticator
+  type: git
+  source:
+    uri: https://github.com/klyall/ad-authenticator
+    branch: master
+
+jobs:
+- name: test-app
+  plan:
+  - get: ad-authenticator
+    trigger: true
+  - task: unit-tests
+    file: ad-authenticator/src/main/ci/unit_test.yml

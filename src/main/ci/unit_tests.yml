@@ -1,0 +1,14 @@
+platform: linux
+
+image_resource:
+  type: docker-image
+  source: 
+    repository: openjdk
+    tag: 8
+
+inputs:
+- name: ad-authenticator
+
+run:
+  path: ./ad-authenticator/src/main/ci/unit_tests.sh
+
