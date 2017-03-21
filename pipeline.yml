@@ -6,7 +6,7 @@ resources:
     branch: master
 
 jobs:
-- name: test-app
+- name: unit-tests
   plan:
   - get: ad-authenticator
     trigger: true
