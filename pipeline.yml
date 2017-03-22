@@ -33,7 +33,7 @@ jobs:
   - aggregate:
       - get: ad-authenticator
         trigger: true
-        passed: [unit-tests,integration-tests]
+        passed: [unit-tests,integration-tests,static_analysis]
   - task: package
     file: ad-authenticator/src/main/ci/package.yml
 
