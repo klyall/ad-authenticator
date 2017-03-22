@@ -12,3 +12,31 @@ jobs:
     trigger: true
   - task: unit-tests
     file: ad-authenticator/src/main/ci/unit_tests.yml
+
+- name: integration-tests
+  plan:
+  - get: ad-authenticator
+    trigger: true
+  - task: integration-tests
+    file: ad-authenticator/src/main/ci/integration_tests.yml
+
+
+- name: static_analysis
+  plan:
+  - get: ad-authenticator
+    trigger: true
+  - task: static_analysis
+    file: ad-authenticator/src/main/ci/static_analysis.yml
+
+- name: package
+  plan:
+  - aggregate:
+      - get: ad-authenticator
+        trigger: true
+        passed: [unit-tests,integration-tests]
+  - task: package
+    file: ad-authenticator/src/main/ci/package.yml
+
+  # Mutation Testing
+  # Sonar
+  # Publish
