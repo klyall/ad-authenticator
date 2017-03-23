@@ -6,6 +6,9 @@ image_resource:
     repository: maven
     tag: 3-jdk-8-alpine
 
+params:
+  SONAR_HOST: http://192.168.99.100:9000
+
 inputs:
 - name: ad-authenticator
   
